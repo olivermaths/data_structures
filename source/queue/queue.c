@@ -1,6 +1,14 @@
 #include <stdlib.h>
 #include "queue.h"
 
+typedef struct queue
+{
+    u16_int head;
+    u16_int tail;
+    u16_int size;
+    int *queue;
+} queue;
+
 queue *create(void)
 {
     queue *queue = malloc(sizeof(queue));
@@ -11,7 +19,7 @@ queue *create(void)
     return queue;
 }
 
-void insert(queue *queue, int element)
+void enqueue(queue *queue, int element)
 {
     if (queue->tail == queue->size)
     {
@@ -22,8 +30,27 @@ void insert(queue *queue, int element)
     queue->tail += 1;
 };
 
-void pop(queue *queue)
+void dequeue(queue *queue)
 {
     queue->queue[queue->head] = 0;
     queue->head += 1;
 }
+
+u16_int get_head(queue *queue)
+{
+    return queue->head;
+};
+
+u16_int get_tail(queue *queue)
+{
+    return queue->tail;
+};
+
+u16_int get_element(queue *queue, int index)
+{
+    if (index >= queue->head && index <= queue->tail)
+    {
+        return queue->queue[index];
+    }
+    return 0;
+};

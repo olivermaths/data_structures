@@ -13,9 +13,9 @@ int main()
     push_back(stack, 7);
     push_back(stack, 8);
 
-    for (int i = 0; i < stack->capacity; i++)
+    for (int i = 0; i < get_capacity(stack); i++)
     {
-        printf("%d, ", stack->array[i]);
+        printf("%d, ", get_element(stack, i));
     }
 
     pop(stack);
@@ -23,10 +23,9 @@ int main()
     push_back(stack, 20);
 
     printf("\n");
-
-    for (int i = 0; i < stack->capacity; i++)
+    for (int i = 0; i < get_capacity(stack); i++)
     {
-        printf("%d, ", stack->array[i]);
+        printf("%d, ", get_element(stack, i));
     }
     printf("\n");
 }

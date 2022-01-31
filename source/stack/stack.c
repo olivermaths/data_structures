@@ -1,6 +1,13 @@
 #include "stack.h"
 #include <stdlib.h>
 
+typedef struct Stack
+{
+    u16_int size;
+    u16_int capacity;
+    int *array;
+} Stack;
+
 Stack *create()
 {
     Stack *stack = malloc(sizeof(stack));
@@ -27,3 +34,16 @@ void pop(Stack *stack)
     stack->capacity -= 1;
     stack->array[stack->capacity] = 0;
 };
+
+int get_capacity(Stack *stack)
+{
+    return stack->capacity;
+}
+int get_element(Stack *stack, int index)
+{
+    if (index <= stack->capacity)
+    {
+        return stack->array[index];
+    }
+    return 0;
+}

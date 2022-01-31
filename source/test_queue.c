@@ -13,18 +13,18 @@ int main()
     insert(queue, 7);
     insert(queue, 8);
 
-    for (int i = queue->head; i < queue->tail; i++)
+    for (int i = get_head(queue); i < get_tail(queue); i++)
     {
-        printf("%d, ", queue->queue[i]);
+        printf("%d, ", get_element(queue, i));
     }
 
     pop(queue);
     pop(queue);
     printf("\n");
 
-    for (int i = queue->head; i < queue->tail; i++)
+    for (int i = get_head(queue); i < get_tail(queue); i++)
     {
-        printf("%d, ", queue->queue[i]);
+        printf("%d, ", get_element(queue, i));
     }
     printf("\n");
 }
